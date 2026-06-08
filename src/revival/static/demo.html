@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acme Corp — Widget Demo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    * { font-family: 'Inter', system-ui, sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- Fake company website -->
+  <nav class="border-b border-gray-100 px-8 py-4 flex items-center justify-between max-w-6xl mx-auto">
+    <div class="flex items-center gap-2">
+      <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">A</div>
+      <span class="font-bold text-lg">Acme Corp</span>
+    </div>
+    <div class="flex items-center gap-8 text-sm text-gray-600">
+      <a href="#" class="hover:text-gray-900">Products</a>
+      <a href="#" class="hover:text-gray-900">Docs</a>
+      <a href="#" class="hover:text-gray-900">Pricing</a>
+      <a href="#" class="hover:text-gray-900">Blog</a>
+      <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700">Get Started</a>
+    </div>
+  </nav>
+
+  <main class="max-w-6xl mx-auto px-8">
+    <!-- Hero -->
+    <section class="py-24 text-center">
+      <div class="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 text-xs font-semibold px-3 py-1 rounded-full mb-6">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+        AI-Powered Document Q&A
+      </div>
+      <h1 class="text-5xl font-extrabold tracking-tight mb-4">Your knowledge base,<br/>instantly searchable</h1>
+      <p class="text-lg text-gray-500 max-w-xl mx-auto mb-8">Upload your documents and let AI answer questions with source citations. Try the chat widget in the bottom-right corner.</p>
+      <div class="flex items-center justify-center gap-4">
+        <a href="#" class="bg-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-colors">Start Free Trial</a>
+        <a href="#" class="text-gray-600 px-6 py-3 rounded-xl font-semibold hover:text-gray-900 transition-colors">View Docs &rarr;</a>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="grid grid-cols-3 gap-8 pb-24">
+      <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100">
+        <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>
+        </div>
+        <h3 class="font-bold mb-1">Upload & Index</h3>
+        <p class="text-sm text-gray-500">Drop PDFs and they're instantly parsed, chunked, and embedded into a searchable knowledge base.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100">
+        <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+        </div>
+        <h3 class="font-bold mb-1">Ask Questions</h3>
+        <p class="text-sm text-gray-500">Natural language queries with real-time streaming answers. Follow-up questions just work.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100">
+        <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+        </div>
+        <h3 class="font-bold mb-1">Source Citations</h3>
+        <p class="text-sm text-gray-500">Every answer includes verifiable citations with document name and page number.</p>
+      </div>
+    </section>
+
+    <!-- Embed instructions -->
+    <section class="pb-24 max-w-2xl mx-auto">
+      <h2 class="text-2xl font-bold text-center mb-2">Embed on your site</h2>
+      <p class="text-center text-gray-500 mb-8">Add the chat widget to any website with a single line of code:</p>
+      <div class="bg-gray-950 rounded-xl p-5 text-sm">
+        <code class="text-green-400">&lt;script <span class="text-blue-400">src</span>=<span class="text-amber-400">"https://your-domain.com/widget.js"</span> <span class="text-blue-400">data-api</span>=<span class="text-amber-400">"https://your-domain.com"</span>&gt;&lt;/script&gt;</code>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-gray-100 py-8 text-center text-sm text-gray-400">
+    This is a demo page. The chat widget in the bottom-right corner is powered by RAG Q&A.
+  </footer>
+
+  <!-- The magic: one script tag embeds the entire chat widget -->
+  <script src="/widget.js" data-title="Ask anything" data-subtitle="AI-powered document Q&A"></script>
+
+</body>
+</html>
