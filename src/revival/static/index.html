@@ -195,8 +195,16 @@
               <span class="text-[10px] font-medium text-gray-500 bg-white/[0.04] border border-white/[0.06] px-2.5 py-1 rounded-lg">AWS S3</span>
             </div>
 
-            <!-- Sample questions -->
-            <div class="mt-8">
+            <!-- Upload CTA (shown when no docs) -->
+            <div id="welcomeUpload" class="hidden mt-8">
+              <button onclick="document.getElementById('fileInput').click()" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white text-[13px] font-semibold px-6 py-3 rounded-xl transition-all shadow-lg shadow-brand-600/20 hover:shadow-brand-500/30">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 16V4m0 0L8 8m4-4l4 4M4 14v4a2 2 0 002 2h12a2 2 0 002-2v-4"/></svg>
+                Upload a PDF to get started
+              </button>
+            </div>
+
+            <!-- Sample questions (shown when docs exist) -->
+            <div id="welcomeQuestions" class="hidden mt-8">
               <p class="text-[11px] font-semibold text-gray-600 uppercase tracking-widest mb-3">Try asking</p>
               <div class="flex flex-col gap-2 max-w-sm mx-auto">
                 <button onclick="askSample(this.textContent)" class="text-left text-[13px] text-gray-400 hover:text-gray-200 bg-white/[0.02] hover:bg-white/[0.05] border border-white/[0.05] hover:border-white/[0.1] rounded-xl px-4 py-3 transition-all">What products does the company offer?</button>
@@ -377,11 +385,13 @@ async function loadDocuments() {
     noDocs.classList.remove('hidden');
     docCount.textContent = '';
     loadStats();
+    updateWelcomeState(false);
     return;
   }
 
   noDocs.classList.add('hidden');
   docCount.textContent = `${docs.length}`;
+  updateWelcomeState(docs.length > 0);
 
   // Render pending uploads first
   const pendingHtml = pendingNames.map(name => `
@@ -728,6 +738,24 @@ function renderMarkdown(text) {
     .replace(/^\d+\. (.+)$/gm, '<li class="ml-4 list-decimal text-gray-300">$1</li>')
     .replace(/\[(\d+)\]/g, '<button onclick="showSource($1-1)" class="inline-flex items-center justify-center min-w-[20px] h-5 px-1 text-[10px] font-bold bg-brand-500/15 text-brand-400 rounded-md hover:bg-brand-500/25 cursor-pointer align-text-top mx-0.5 border border-brand-500/10 transition-colors">$1</button>')
     .replace(/\n/g, '<br>');
+}
+
+// ===== WELCOME STATE =====
+function updateWelcomeState(hasDocs) {
+  const badge = document.querySelector('#welcomeMsg .inline-flex');
+  const upload = document.getElementById('welcomeUpload');
+  const questions = document.getElementById('welcomeQuestions');
+  if (!upload || !questions) return;
+
+  if (hasDocs) {
+    if (badge) badge.classList.remove('hidden');
+    upload.classList.add('hidden');
+    questions.classList.remove('hidden');
+  } else {
+    if (badge) badge.classList.add('hidden');
+    upload.classList.remove('hidden');
+    questions.classList.add('hidden');
+  }
 }
 
 // ===== MOBILE SIDEBAR =====
